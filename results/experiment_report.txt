@@ -1,0 +1,46 @@
+Running 4 scenarios x 3 seeds for 100 steps ...
+ORG EVOLUTION / EXPERIMENT REPORT
+================================================================================================
+Seeds: 11, 23, 37    Steps: 100    Population: 360
+
+Scenario                     Height    Mgr%  Out/head    Wage  Margin    Size  Employed  Survive Discount
+---------------------------------------------------------------------------------------------------------
+baseline                       8.22   27.3%      47.1    45.5    5.7%    35.2     358.9    62.6%    15.7%
+no_ladder                      5.74   20.6%      58.2    49.5   10.0%    27.9     324.9    68.4%     0.0%
+no_competition                 8.18   26.7%      49.7    45.2    3.5%    25.5     329.9   100.0%    16.8%
+high_competition               7.80   28.2%      48.3    45.4    1.2%    31.5     348.9    58.6%    16.0%
+
+HYPOTHESIS TEST: baseline vs no-ladder
+------------------------------------------------------------------------------------------------
+Verdict: SUPPORTED — The baseline forms taller, less productive hierarchies that stay large; removing career-ladder preferences flattens them.
+
+  Height delta (baseline - no ladder)       : +2.49 levels
+  Manager-ratio delta                       : +6.6%
+  Output/worker delta                       : -11.10
+  Wage delta                                : -4.05
+  Average firm-size delta                   : +7.29
+  Employment delta                          : +33.9
+  Survival-rate delta                       : -5.8%
+  Profit-margin delta                       : -4.3%
+
+  Conditions:
+    [PASS] taller hierarchy
+    [PASS] lower productivity
+    [PASS] not much smaller
+  Paired seeds: 3/3 taller, 3/3 less productive, 3/3 not smaller.
+  Deltas are baseline minus no-ladder. Positive height/manager deltas and negative productivity deltas support the mechanism; survival is reported separately because it measures market selection, not size. These are simulation effect sizes, not statistical significance tests.
+
+COMPETITION CHECK
+------------------------------------------------------------------------------------------------
+  Sheltered minus baseline height: -0.04; high-competition minus baseline height: -0.42
+  Baseline minus sheltered profit margin: +2.2%; high-competition minus baseline margin: -4.4%
+  Baseline minus sheltered survival: -37.4%; high-competition minus baseline survival: -4.1%
+
+CAVEAT
+------------------------------------------------------------------------------------------------
+These are effect sizes from a deliberately stylised model, not estimates
+from real organisations. The useful output is the direction and robustness
+of the mechanism under parameter changes, not the absolute numbers.
+
+Saved experiment JSON to results/experiment.json
+Saved comparison CSV to results/summary.csv

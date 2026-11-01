@@ -1,0 +1,1221 @@
+{
+  "meta": {
+    "model": "orgsim",
+    "version": "0.1.0",
+    "steps": 100,
+    "population": 360,
+    "seeds": [
+      11,
+      23,
+      37
+    ],
+    "scenarios": [
+      "baseline",
+      "no_ladder",
+      "no_competition",
+      "high_competition"
+    ],
+    "overrides": {}
+  },
+  "scenarios": {
+    "baseline": {
+      "label": "Career ladder + competition",
+      "description": "Workers value promotion prospects, firms use retention promotions, and output markets are competitive."
+    },
+    "no_ladder": {
+      "label": "No career-ladder preference",
+      "description": "Identical economy, but workers place no value on promotion prospects and will not trade wages for a ladder. Retention promotions are off."
+    },
+    "no_competition": {
+      "label": "Sheltered market",
+      "description": "Fixed output price and very little firm failure. Inefficient hierarchies are allowed to persist."
+    },
+    "high_competition": {
+      "label": "High competitive pressure",
+      "description": "A more contested output market, lower prices, easier entry, and a tighter failure threshold."
+    }
+  },
+  "aggregates": {
+    "baseline": {
+      "n": 3,
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "weighted_height": {
+        "mean": 8.2244,
+        "sd": 0.4949,
+        "min": 7.5549,
+        "max": 8.7357
+      },
+      "weighted_manager_ratio": {
+        "mean": 0.2727,
+        "sd": 0.0154,
+        "min": 0.2515,
+        "max": 0.2875
+      },
+      "output_per_worker": {
+        "mean": 47.1032,
+        "sd": 0.8475,
+        "min": 46.0055,
+        "max": 48.0687
+      },
+      "wage_per_worker": {
+        "mean": 45.4602,
+        "sd": 1.1684,
+        "min": 43.808,
+        "max": 46.299
+      },
+      "profit_margin": {
+        "mean": 0.0567,
+        "sd": 0.0275,
+        "min": 0.0259,
+        "max": 0.0926
+      },
+      "avg_firm_size": {
+        "mean": 35.2324,
+        "sd": 3.083,
+        "min": 30.8752,
+        "max": 37.5476
+      },
+      "max_firm_size": {
+        "mean": 94.92,
+        "sd": 0.1131,
+        "min": 94.76,
+        "max": 95.0
+      },
+      "employed": {
+        "mean": 358.8533,
+        "sd": 0.6453,
+        "min": 358.0,
+        "max": 359.56
+      },
+      "tall_employment_share": {
+        "mean": 0.9597,
+        "sd": 0.0047,
+        "min": 0.9543,
+        "max": 0.9658
+      },
+      "career_discount": {
+        "mean": 0.1573,
+        "sd": 0.0025,
+        "min": 0.1549,
+        "max": 0.1608
+      },
+      "promotion_prospect": {
+        "mean": 0.4558,
+        "sd": 0.0162,
+        "min": 0.4371,
+        "max": 0.4766
+      },
+      "survival_rate": {
+        "mean": 0.6261,
+        "sd": 0.0268,
+        "min": 0.5882,
+        "max": 0.6471
+      },
+      "total_entries": {
+        "mean": 6.0,
+        "sd": 1.4142,
+        "min": 4.0,
+        "max": 7.0
+      },
+      "total_exits": {
+        "mean": 6.0,
+        "sd": 0.8165,
+        "min": 5.0,
+        "max": 7.0
+      },
+      "voluntary_quits": {
+        "mean": 1.8667,
+        "sd": 1.3284,
+        "min": 0.04,
+        "max": 3.16
+      },
+      "retention_promotions": {
+        "mean": 0.7067,
+        "sd": 0.0822,
+        "min": 0.6,
+        "max": 0.8
+      },
+      "promotion_rate": {
+        "mean": 0.0025,
+        "sd": 0.0004,
+        "min": 0.002,
+        "max": 0.0029
+      },
+      "quit_rate": {
+        "mean": 0.0052,
+        "sd": 0.0037,
+        "min": 0.0001,
+        "max": 0.0088
+      }
+    },
+    "no_ladder": {
+      "n": 3,
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "weighted_height": {
+        "mean": 5.7377,
+        "sd": 0.6196,
+        "min": 5.2639,
+        "max": 6.613
+      },
+      "weighted_manager_ratio": {
+        "mean": 0.2065,
+        "sd": 0.0111,
+        "min": 0.1936,
+        "max": 0.2207
+      },
+      "output_per_worker": {
+        "mean": 58.2041,
+        "sd": 2.0544,
+        "min": 55.3176,
+        "max": 59.9334
+      },
+      "wage_per_worker": {
+        "mean": 49.5145,
+        "sd": 0.3585,
+        "min": 49.1968,
+        "max": 50.0155
+      },
+      "profit_margin": {
+        "mean": 0.0999,
+        "sd": 0.0141,
+        "min": 0.0854,
+        "max": 0.119
+      },
+      "avg_firm_size": {
+        "mean": 27.9429,
+        "sd": 1.1192,
+        "min": 26.4528,
+        "max": 29.15
+      },
+      "max_firm_size": {
+        "mean": 87.6667,
+        "sd": 10.3709,
+        "min": 73.0,
+        "max": 95.0
+      },
+      "employed": {
+        "mean": 324.9333,
+        "sd": 5.8545,
+        "min": 320.4,
+        "max": 333.2
+      },
+      "tall_employment_share": {
+        "mean": 0.8933,
+        "sd": 0.0165,
+        "min": 0.8725,
+        "max": 0.9129
+      },
+      "career_discount": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "promotion_prospect": {
+        "mean": 0.3502,
+        "sd": 0.0336,
+        "min": 0.3207,
+        "max": 0.3973
+      },
+      "survival_rate": {
+        "mean": 0.6841,
+        "sd": 0.0768,
+        "min": 0.6,
+        "max": 0.7857
+      },
+      "total_entries": {
+        "mean": 7.3333,
+        "sd": 2.4944,
+        "min": 4.0,
+        "max": 10.0
+      },
+      "total_exits": {
+        "mean": 5.6667,
+        "sd": 2.0548,
+        "min": 3.0,
+        "max": 8.0
+      },
+      "voluntary_quits": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "retention_promotions": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "promotion_rate": {
+        "mean": 0.0004,
+        "sd": 0.0001,
+        "min": 0.0002,
+        "max": 0.0005
+      },
+      "quit_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "no_competition": {
+      "n": 3,
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "weighted_height": {
+        "mean": 8.1836,
+        "sd": 0.1174,
+        "min": 8.06,
+        "max": 8.3415
+      },
+      "weighted_manager_ratio": {
+        "mean": 0.2665,
+        "sd": 0.0081,
+        "min": 0.2595,
+        "max": 0.2778
+      },
+      "output_per_worker": {
+        "mean": 49.7144,
+        "sd": 1.1906,
+        "min": 48.1134,
+        "max": 50.9664
+      },
+      "wage_per_worker": {
+        "mean": 45.2054,
+        "sd": 0.7013,
+        "min": 44.2878,
+        "max": 45.99
+      },
+      "profit_margin": {
+        "mean": 0.0345,
+        "sd": 0.0234,
+        "min": 0.0018,
+        "max": 0.0555
+      },
+      "avg_firm_size": {
+        "mean": 25.4635,
+        "sd": 1.4955,
+        "min": 23.4116,
+        "max": 26.9332
+      },
+      "max_firm_size": {
+        "mean": 95.0,
+        "sd": 0.0,
+        "min": 95.0,
+        "max": 95.0
+      },
+      "employed": {
+        "mean": 329.8533,
+        "sd": 6.4684,
+        "min": 323.16,
+        "max": 338.6
+      },
+      "tall_employment_share": {
+        "mean": 0.9705,
+        "sd": 0.0036,
+        "min": 0.9659,
+        "max": 0.9747
+      },
+      "career_discount": {
+        "mean": 0.1684,
+        "sd": 0.0049,
+        "min": 0.1626,
+        "max": 0.1746
+      },
+      "promotion_prospect": {
+        "mean": 0.4614,
+        "sd": 0.0145,
+        "min": 0.4415,
+        "max": 0.4757
+      },
+      "survival_rate": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "total_entries": {
+        "mean": 3.0,
+        "sd": 0.8165,
+        "min": 2.0,
+        "max": 4.0
+      },
+      "total_exits": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "voluntary_quits": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "retention_promotions": {
+        "mean": 0.4933,
+        "sd": 0.068,
+        "min": 0.4,
+        "max": 0.56
+      },
+      "promotion_rate": {
+        "mean": 0.0015,
+        "sd": 0.0002,
+        "min": 0.0012,
+        "max": 0.0017
+      },
+      "quit_rate": {
+        "mean": 0.0,
+        "sd": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "high_competition": {
+      "n": 3,
+      "seeds": [
+        11,
+        23,
+        37
+      ],
+      "weighted_height": {
+        "mean": 7.8,
+        "sd": 0.0991,
+        "min": 7.695,
+        "max": 7.9328
+      },
+      "weighted_manager_ratio": {
+        "mean": 0.2823,
+        "sd": 0.0083,
+        "min": 0.2721,
+        "max": 0.2924
+      },
+      "output_per_worker": {
+        "mean": 48.3041,
+        "sd": 1.4178,
+        "min": 47.0277,
+        "max": 50.2815
+      },
+      "wage_per_worker": {
+        "mean": 45.3993,
+        "sd": 0.9994,
+        "min": 44.144,
+        "max": 46.5895
+      },
+      "profit_margin": {
+        "mean": 0.0123,
+        "sd": 0.026,
+        "min": -0.0225,
+        "max": 0.0399
+      },
+      "avg_firm_size": {
+        "mean": 31.4859,
+        "sd": 2.8836,
+        "min": 28.3004,
+        "max": 35.2836
+      },
+      "max_firm_size": {
+        "mean": 94.88,
+        "sd": 0.1697,
+        "min": 94.64,
+        "max": 95.0
+      },
+      "employed": {
+        "mean": 348.8933,
+        "sd": 11.6508,
+        "min": 332.8,
+        "max": 360.0
+      },
+      "tall_employment_share": {
+        "mean": 0.9718,
+        "sd": 0.0061,
+        "min": 0.9649,
+        "max": 0.9797
+      },
+      "career_discount": {
+        "mean": 0.1597,
+        "sd": 0.0063,
+        "min": 0.1516,
+        "max": 0.1669
+      },
+      "promotion_prospect": {
+        "mean": 0.431,
+        "sd": 0.0107,
+        "min": 0.4204,
+        "max": 0.4456
+      },
+      "survival_rate": {
+        "mean": 0.5855,
+        "sd": 0.042,
+        "min": 0.5263,
+        "max": 0.619
+      },
+      "total_entries": {
+        "mean": 9.3333,
+        "sd": 1.2472,
+        "min": 8.0,
+        "max": 11.0
+      },
+      "total_exits": {
+        "mean": 8.0,
+        "sd": 0.8165,
+        "min": 7.0,
+        "max": 9.0
+      },
+      "voluntary_quits": {
+        "mean": 0.6933,
+        "sd": 0.897,
+        "min": 0.0,
+        "max": 1.96
+      },
+      "retention_promotions": {
+        "mean": 0.72,
+        "sd": 0.0653,
+        "min": 0.64,
+        "max": 0.8
+      },
+      "promotion_rate": {
+        "mean": 0.0025,
+        "sd": 0.0004,
+        "min": 0.0019,
+        "max": 0.0028
+      },
+      "quit_rate": {
+        "mean": 0.0019,
+        "sd": 0.0025,
+        "min": 0.0,
+        "max": 0.0054
+      }
+    }
+  },
+  "runs": {
+    "baseline": [
+      {
+        "firms": 11.72,
+        "employed": 359.56,
+        "unemployed": 0.44,
+        "unemployment_rate": 0.0012,
+        "avg_firm_size": 30.8752,
+        "max_firm_size": 95.0,
+        "avg_height": 4.8589,
+        "weighted_height": 8.3827,
+        "avg_manager_ratio": 0.2634,
+        "weighted_manager_ratio": 0.279,
+        "average_span": 1.968,
+        "weighted_span_target": 4.8433,
+        "output": 16541.668,
+        "output_per_worker": 46.0055,
+        "revenue_per_worker": 49.8508,
+        "wage_per_worker": 46.2737,
+        "profit_margin": 0.0259,
+        "price": 1.0838,
+        "tall_employment_share": 0.9658,
+        "tall_output_per_worker": 46.0819,
+        "flat_output_per_worker": 45.628,
+        "tall_wage_per_worker": 46.1526,
+        "flat_wage_per_worker": 51.0414,
+        "tall_manager_ratio": 0.2778,
+        "manager_share": 0.279,
+        "career_discount": 0.1608,
+        "hierarchy_support": 0.5756,
+        "promotion_prospect": 0.4766,
+        "promotions": 1.04,
+        "retention_promotions": 0.72,
+        "promotion_rate": 0.0029,
+        "quit_rate": 0.0088,
+        "hires": 3.8,
+        "voluntary_quits": 3.16,
+        "layoffs": 0.8,
+        "entries": 0.0,
+        "exits": 0.08,
+        "avg_firm_age": 84.7464,
+        "steps": 100,
+        "final_firms": 11,
+        "total_entries": 7,
+        "total_exits": 6,
+        "survival_rate": 0.6471,
+        "behaviors": {
+          "careerist": 84,
+          "operator": 98,
+          "steady": 56,
+          "loyalist": 73,
+          "politician": 49
+        },
+        "seed": 11,
+        "scenario": "baseline"
+      },
+      {
+        "firms": 9.56,
+        "employed": 358.0,
+        "unemployed": 2.0,
+        "unemployment_rate": 0.0056,
+        "avg_firm_size": 37.5476,
+        "max_firm_size": 95.0,
+        "avg_height": 5.0013,
+        "weighted_height": 8.7357,
+        "avg_manager_ratio": 0.1888,
+        "weighted_manager_ratio": 0.2515,
+        "average_span": 2.5048,
+        "weighted_span_target": 5.463,
+        "output": 17208.616,
+        "output_per_worker": 48.0687,
+        "revenue_per_worker": 50.7689,
+        "wage_per_worker": 46.299,
+        "profit_margin": 0.0515,
+        "price": 1.0563,
+        "tall_employment_share": 0.9543,
+        "tall_output_per_worker": 47.8235,
+        "flat_output_per_worker": 53.2172,
+        "tall_wage_per_worker": 46.2534,
+        "flat_wage_per_worker": 48.0413,
+        "tall_manager_ratio": 0.2529,
+        "manager_share": 0.2515,
+        "career_discount": 0.1549,
+        "hierarchy_support": 0.5493,
+        "promotion_prospect": 0.4538,
+        "promotions": 0.72,
+        "retention_promotions": 0.6,
+        "promotion_rate": 0.002,
+        "quit_rate": 0.0001,
+        "hires": 1.2,
+        "voluntary_quits": 0.04,
+        "layoffs": 1.36,
+        "entries": 0.08,
+        "exits": 0.04,
+        "avg_firm_age": 77.6288,
+        "steps": 100,
+        "final_firms": 10,
+        "total_entries": 7,
+        "total_exits": 7,
+        "survival_rate": 0.5882,
+        "behaviors": {
+          "steady": 80,
+          "politician": 41,
+          "loyalist": 75,
+          "operator": 90,
+          "careerist": 74
+        },
+        "seed": 23,
+        "scenario": "baseline"
+      },
+      {
+        "firms": 9.68,
+        "employed": 359.0,
+        "unemployed": 1.0,
+        "unemployment_rate": 0.0028,
+        "avg_firm_size": 37.2744,
+        "max_firm_size": 94.76,
+        "avg_height": 5.3825,
+        "weighted_height": 7.5549,
+        "avg_manager_ratio": 0.3473,
+        "weighted_manager_ratio": 0.2875,
+        "average_span": 2.8682,
+        "weighted_span_target": 4.676,
+        "output": 16956.508,
+        "output_per_worker": 47.2353,
+        "revenue_per_worker": 50.3555,
+        "wage_per_worker": 43.808,
+        "profit_margin": 0.0926,
+        "price": 1.0661,
+        "tall_employment_share": 0.959,
+        "tall_output_per_worker": 47.4076,
+        "flat_output_per_worker": 42.791,
+        "tall_wage_per_worker": 43.6911,
+        "flat_wage_per_worker": 46.1018,
+        "tall_manager_ratio": 0.2827,
+        "manager_share": 0.2875,
+        "career_discount": 0.1562,
+        "hierarchy_support": 0.5943,
+        "promotion_prospect": 0.4371,
+        "promotions": 0.96,
+        "retention_promotions": 0.8,
+        "promotion_rate": 0.0027,
+        "quit_rate": 0.0067,
+        "hires": 3.16,
+        "voluntary_quits": 2.4,
+        "layoffs": 0.4,
+        "entries": 0.04,
+        "exits": 0.12,
+        "avg_firm_age": 83.8268,
+        "steps": 100,
+        "final_firms": 9,
+        "total_entries": 4,
+        "total_exits": 5,
+        "survival_rate": 0.6429,
+        "behaviors": {
+          "politician": 54,
+          "loyalist": 75,
+          "operator": 80,
+          "careerist": 76,
+          "steady": 75
+        },
+        "seed": 37,
+        "scenario": "baseline"
+      }
+    ],
+    "no_ladder": [
+      {
+        "firms": 11.4,
+        "employed": 321.2,
+        "unemployed": 38.8,
+        "unemployment_rate": 0.1078,
+        "avg_firm_size": 28.226,
+        "max_firm_size": 95.0,
+        "avg_height": 4.2002,
+        "weighted_height": 5.2639,
+        "avg_manager_ratio": 0.2506,
+        "weighted_manager_ratio": 0.2051,
+        "average_span": 3.9718,
+        "weighted_span_target": 5.2002,
+        "output": 19066.208,
+        "output_per_worker": 59.3614,
+        "revenue_per_worker": 58.6567,
+        "wage_per_worker": 49.1968,
+        "profit_margin": 0.119,
+        "price": 0.9881,
+        "tall_employment_share": 0.9129,
+        "tall_output_per_worker": 60.7033,
+        "flat_output_per_worker": 45.436,
+        "tall_wage_per_worker": 49.6768,
+        "flat_wage_per_worker": 44.208,
+        "tall_manager_ratio": 0.1953,
+        "manager_share": 0.2051,
+        "career_discount": 0.0,
+        "hierarchy_support": 0.5772,
+        "promotion_prospect": 0.3327,
+        "promotions": 0.16,
+        "retention_promotions": 0.0,
+        "promotion_rate": 0.0005,
+        "quit_rate": 0.0,
+        "hires": 0.72,
+        "voluntary_quits": 0.0,
+        "layoffs": 0.16,
+        "entries": 0.04,
+        "exits": 0.04,
+        "avg_firm_age": 84.554,
+        "steps": 100,
+        "final_firms": 11,
+        "total_entries": 4,
+        "total_exits": 3,
+        "survival_rate": 0.7857,
+        "behaviors": {
+          "careerist": 84,
+          "operator": 98,
+          "steady": 56,
+          "loyalist": 73,
+          "politician": 49
+        },
+        "seed": 11,
+        "scenario": "no_ladder"
+      },
+      {
+        "firms": 12.64,
+        "employed": 333.2,
+        "unemployed": 26.8,
+        "unemployment_rate": 0.0744,
+        "avg_firm_size": 26.4528,
+        "max_firm_size": 95.0,
+        "avg_height": 3.9984,
+        "weighted_height": 5.3362,
+        "avg_manager_ratio": 0.2264,
+        "weighted_manager_ratio": 0.1936,
+        "average_span": 4.3658,
+        "weighted_span_target": 5.731,
+        "output": 19968.512,
+        "output_per_worker": 59.9334,
+        "revenue_per_worker": 57.4605,
+        "wage_per_worker": 49.3313,
+        "profit_margin": 0.0953,
+        "price": 0.9587,
+        "tall_employment_share": 0.8725,
+        "tall_output_per_worker": 61.6007,
+        "flat_output_per_worker": 48.692,
+        "tall_wage_per_worker": 50.2518,
+        "flat_wage_per_worker": 43.0619,
+        "tall_manager_ratio": 0.1848,
+        "manager_share": 0.1936,
+        "career_discount": 0.0,
+        "hierarchy_support": 0.5421,
+        "promotion_prospect": 0.3207,
+        "promotions": 0.12,
+        "retention_promotions": 0.0,
+        "promotion_rate": 0.0004,
+        "quit_rate": 0.0,
+        "hires": 0.48,
+        "voluntary_quits": 0.0,
+        "layoffs": 0.32,
+        "entries": 0.04,
+        "exits": 0.08,
+        "avg_firm_age": 84.2116,
+        "steps": 100,
+        "final_firms": 12,
+        "total_entries": 8,
+        "total_exits": 6,
+        "survival_rate": 0.6667,
+        "behaviors": {
+          "steady": 80,
+          "politician": 41,
+          "loyalist": 75,
+          "operator": 90,
+          "careerist": 74
+        },
+        "seed": 23,
+        "scenario": "no_ladder"
+      },
+      {
+        "firms": 11.04,
+        "employed": 320.4,
+        "unemployed": 39.6,
+        "unemployment_rate": 0.11,
+        "avg_firm_size": 29.15,
+        "max_firm_size": 73.0,
+        "avg_height": 4.8798,
+        "weighted_height": 6.613,
+        "avg_manager_ratio": 0.2447,
+        "weighted_manager_ratio": 0.2207,
+        "average_span": 3.9154,
+        "weighted_span_target": 4.9175,
+        "output": 17721.864,
+        "output_per_worker": 55.3176,
+        "revenue_per_worker": 57.3142,
+        "wage_per_worker": 50.0155,
+        "profit_margin": 0.0854,
+        "price": 1.0361,
+        "tall_employment_share": 0.8944,
+        "tall_output_per_worker": 56.2424,
+        "flat_output_per_worker": 47.6581,
+        "tall_wage_per_worker": 50.6939,
+        "flat_wage_per_worker": 44.3845,
+        "tall_manager_ratio": 0.2145,
+        "manager_share": 0.2207,
+        "career_discount": 0.0,
+        "hierarchy_support": 0.5987,
+        "promotion_prospect": 0.3973,
+        "promotions": 0.08,
+        "retention_promotions": 0.0,
+        "promotion_rate": 0.0002,
+        "quit_rate": 0.0,
+        "hires": 0.6,
+        "voluntary_quits": 0.0,
+        "layoffs": 0.44,
+        "entries": 0.08,
+        "exits": 0.08,
+        "avg_firm_age": 80.9172,
+        "steps": 100,
+        "final_firms": 12,
+        "total_entries": 10,
+        "total_exits": 8,
+        "survival_rate": 0.6,
+        "behaviors": {
+          "politician": 54,
+          "loyalist": 75,
+          "operator": 80,
+          "careerist": 76,
+          "steady": 75
+        },
+        "seed": 37,
+        "scenario": "no_ladder"
+      }
+    ],
+    "no_competition": [
+      {
+        "firms": 14.0,
+        "employed": 327.8,
+        "unemployed": 32.2,
+        "unemployment_rate": 0.0894,
+        "avg_firm_size": 23.4116,
+        "max_firm_size": 95.0,
+        "avg_height": 3.1057,
+        "weighted_height": 8.1494,
+        "avg_manager_ratio": 0.1028,
+        "weighted_manager_ratio": 0.2595,
+        "average_span": 1.1328,
+        "weighted_span_target": 4.7961,
+        "output": 16411.64,
+        "output_per_worker": 50.0633,
+        "revenue_per_worker": 50.0633,
+        "wage_per_worker": 44.2878,
+        "profit_margin": 0.0555,
+        "price": 1.0,
+        "tall_employment_share": 0.9659,
+        "tall_output_per_worker": 49.7232,
+        "flat_output_per_worker": 60.6912,
+        "tall_wage_per_worker": 44.2764,
+        "flat_wage_per_worker": 44.8517,
+        "tall_manager_ratio": 0.2666,
+        "manager_share": 0.2595,
+        "career_discount": 0.1679,
+        "hierarchy_support": 0.5805,
+        "promotion_prospect": 0.4669,
+        "promotions": 0.56,
+        "retention_promotions": 0.52,
+        "promotion_rate": 0.0017,
+        "quit_rate": 0.0,
+        "hires": 0.16,
+        "voluntary_quits": 0.0,
+        "layoffs": 0.44,
+        "entries": 0.0,
+        "exits": 0.0,
+        "avg_firm_age": 78.57,
+        "steps": 100,
+        "final_firms": 14,
+        "total_entries": 4,
+        "total_exits": 0,
+        "survival_rate": 1.0,
+        "behaviors": {
+          "careerist": 84,
+          "operator": 98,
+          "steady": 56,
+          "loyalist": 73,
+          "politician": 49
+        },
+        "seed": 11,
+        "scenario": "no_competition"
+      },
+      {
+        "firms": 12.0,
+        "employed": 323.16,
+        "unemployed": 36.84,
+        "unemployment_rate": 0.1024,
+        "avg_firm_size": 26.9332,
+        "max_firm_size": 95.0,
+        "avg_height": 3.41,
+        "weighted_height": 8.06,
+        "avg_manager_ratio": 0.1003,
+        "weighted_manager_ratio": 0.2621,
+        "average_span": 1.247,
+        "weighted_span_target": 5.5022,
+        "output": 16470.544,
+        "output_per_worker": 50.9664,
+        "revenue_per_worker": 50.9664,
+        "wage_per_worker": 45.99,
+        "profit_margin": 0.0461,
+        "price": 1.0,
+        "tall_employment_share": 0.9747,
+        "tall_output_per_worker": 50.6686,
+        "flat_output_per_worker": 62.4818,
+        "tall_wage_per_worker": 45.9381,
+        "flat_wage_per_worker": 47.8358,
+        "tall_manager_ratio": 0.2684,
+        "manager_share": 0.2621,
+        "career_discount": 0.1626,
+        "hierarchy_support": 0.5515,
+        "promotion_prospect": 0.4415,
+        "promotions": 0.56,
+        "retention_promotions": 0.56,
+        "promotion_rate": 0.0017,
+        "quit_rate": 0.0,
+        "hires": 0.0,
+        "voluntary_quits": 0.0,
+        "layoffs": 0.24,
+        "entries": 0.0,
+        "exits": 0.0,
+        "avg_firm_age": 77.58,
+        "steps": 100,
+        "final_firms": 12,
+        "total_entries": 2,
+        "total_exits": 0,
+        "survival_rate": 1.0,
+        "behaviors": {
+          "steady": 80,
+          "politician": 41,
+          "loyalist": 75,
+          "operator": 90,
+          "careerist": 74
+        },
+        "seed": 23,
+        "scenario": "no_competition"
+      },
+      {
+        "firms": 13.0,
+        "employed": 338.6,
+        "unemployed": 21.4,
+        "unemployment_rate": 0.0594,
+        "avg_firm_size": 26.0456,
+        "max_firm_size": 95.0,
+        "avg_height": 3.5474,
+        "weighted_height": 8.3415,
+        "avg_manager_ratio": 0.1295,
+        "weighted_manager_ratio": 0.2778,
+        "average_span": 1.2949,
+        "weighted_span_target": 4.4729,
+        "output": 16291.028,
+        "output_per_worker": 48.1134,
+        "revenue_per_worker": 48.1134,
+        "wage_per_worker": 45.3384,
+        "profit_margin": 0.0018,
+        "price": 1.0,
+        "tall_employment_share": 0.9708,
+        "tall_output_per_worker": 47.959,
+        "flat_output_per_worker": 54.6336,
+        "tall_wage_per_worker": 45.3744,
+        "flat_wage_per_worker": 44.5726,
+        "tall_manager_ratio": 0.2841,
+        "manager_share": 0.2778,
+        "career_discount": 0.1746,
+        "hierarchy_support": 0.5981,
+        "promotion_prospect": 0.4757,
+        "promotions": 0.4,
+        "retention_promotions": 0.4,
+        "promotion_rate": 0.0012,
+        "quit_rate": 0.0,
+        "hires": 0.16,
+        "voluntary_quits": 0.0,
+        "layoffs": 1.44,
+        "entries": 0.0,
+        "exits": 0.0,
+        "avg_firm_age": 76.62,
+        "steps": 100,
+        "final_firms": 13,
+        "total_entries": 3,
+        "total_exits": 0,
+        "survival_rate": 1.0,
+        "behaviors": {
+          "politician": 54,
+          "loyalist": 75,
+          "operator": 80,
+          "careerist": 76,
+          "steady": 75
+        },
+        "seed": 37,
+        "scenario": "no_competition"
+      }
+    ],
+    "high_competition": [
+      {
+        "firms": 11.68,
+        "employed": 360.0,
+        "unemployed": 0.0,
+        "unemployment_rate": 0.0,
+        "avg_firm_size": 30.8736,
+        "max_firm_size": 94.64,
+        "avg_height": 4.8424,
+        "weighted_height": 7.7721,
+        "avg_manager_ratio": 0.37,
+        "weighted_manager_ratio": 0.2823,
+        "average_span": 2.2504,
+        "weighted_span_target": 4.8019,
+        "output": 16929.976,
+        "output_per_worker": 47.0277,
+        "revenue_per_worker": 46.6857,
+        "wage_per_worker": 45.4643,
+        "profit_margin": -0.0225,
+        "price": 0.9933,
+        "tall_employment_share": 0.9649,
+        "tall_output_per_worker": 47.1371,
+        "flat_output_per_worker": 43.6798,
+        "tall_wage_per_worker": 45.3337,
+        "flat_wage_per_worker": 48.9624,
+        "tall_manager_ratio": 0.2785,
+        "manager_share": 0.2823,
+        "career_discount": 0.1607,
+        "hierarchy_support": 0.5758,
+        "promotion_prospect": 0.4456,
+        "promotions": 1.0,
+        "retention_promotions": 0.72,
+        "promotion_rate": 0.0028,
+        "quit_rate": 0.0054,
+        "hires": 2.96,
+        "voluntary_quits": 1.96,
+        "layoffs": 0.96,
+        "entries": 0.0,
+        "exits": 0.04,
+        "avg_firm_age": 86.7148,
+        "steps": 100,
+        "final_firms": 11,
+        "total_entries": 8,
+        "total_exits": 7,
+        "survival_rate": 0.6111,
+        "behaviors": {
+          "careerist": 84,
+          "operator": 98,
+          "steady": 56,
+          "loyalist": 73,
+          "politician": 49
+        },
+        "seed": 11,
+        "scenario": "high_competition"
+      },
+      {
+        "firms": 9.48,
+        "employed": 332.8,
+        "unemployed": 27.2,
+        "unemployment_rate": 0.0756,
+        "avg_firm_size": 35.2836,
+        "max_firm_size": 95.0,
+        "avg_height": 5.8381,
+        "weighted_height": 7.9328,
+        "avg_manager_ratio": 0.3805,
+        "weighted_manager_ratio": 0.2721,
+        "average_span": 2.7679,
+        "weighted_span_target": 5.5109,
+        "output": 16728.08,
+        "output_per_worker": 50.2815,
+        "revenue_per_worker": 50.5958,
+        "wage_per_worker": 46.5895,
+        "profit_margin": 0.0399,
+        "price": 1.0063,
+        "tall_employment_share": 0.9797,
+        "tall_output_per_worker": 50.4694,
+        "flat_output_per_worker": 37.668,
+        "tall_wage_per_worker": 46.754,
+        "flat_wage_per_worker": 37.6606,
+        "tall_manager_ratio": 0.2724,
+        "manager_share": 0.2721,
+        "career_discount": 0.1516,
+        "hierarchy_support": 0.5416,
+        "promotion_prospect": 0.4269,
+        "promotions": 0.92,
+        "retention_promotions": 0.8,
+        "promotion_rate": 0.0028,
+        "quit_rate": 0.0,
+        "hires": 2.28,
+        "voluntary_quits": 0.0,
+        "layoffs": 1.44,
+        "entries": 0.12,
+        "exits": 0.12,
+        "avg_firm_age": 76.1252,
+        "steps": 100,
+        "final_firms": 10,
+        "total_entries": 9,
+        "total_exits": 9,
+        "survival_rate": 0.5263,
+        "behaviors": {
+          "steady": 80,
+          "politician": 41,
+          "loyalist": 75,
+          "operator": 90,
+          "careerist": 74
+        },
+        "seed": 23,
+        "scenario": "high_competition"
+      },
+      {
+        "firms": 12.52,
+        "employed": 353.88,
+        "unemployed": 6.12,
+        "unemployment_rate": 0.017,
+        "avg_firm_size": 28.3004,
+        "max_firm_size": 95.0,
+        "avg_height": 5.1796,
+        "weighted_height": 7.695,
+        "avg_manager_ratio": 0.415,
+        "weighted_manager_ratio": 0.2924,
+        "average_span": 2.3876,
+        "weighted_span_target": 4.9703,
+        "output": 16843.8,
+        "output_per_worker": 47.603,
+        "revenue_per_worker": 47.5248,
+        "wage_per_worker": 44.144,
+        "profit_margin": 0.0194,
+        "price": 0.9987,
+        "tall_employment_share": 0.9707,
+        "tall_output_per_worker": 47.9722,
+        "flat_output_per_worker": 37.044,
+        "tall_wage_per_worker": 44.2729,
+        "flat_wage_per_worker": 41.1864,
+        "tall_manager_ratio": 0.2889,
+        "manager_share": 0.2924,
+        "career_discount": 0.1669,
+        "hierarchy_support": 0.5938,
+        "promotion_prospect": 0.4204,
+        "promotions": 0.68,
+        "retention_promotions": 0.64,
+        "promotion_rate": 0.0019,
+        "quit_rate": 0.0003,
+        "hires": 0.72,
+        "voluntary_quits": 0.12,
+        "layoffs": 0.16,
+        "entries": 0.12,
+        "exits": 0.08,
+        "avg_firm_age": 80.8324,
+        "steps": 100,
+        "final_firms": 13,
+        "total_entries": 11,
+        "total_exits": 8,
+        "survival_rate": 0.619,
+        "behaviors": {
+          "politician": 54,
+          "loyalist": 75,
+          "operator": 80,
+          "careerist": 76,
+          "steady": 75
+        },
+        "seed": 37,
+        "scenario": "high_competition"
+      }
+    ]
+  },
+  "hypothesis": {
+    "verdict": "supported",
+    "headline": "The baseline forms taller, less productive hierarchies that stay large; removing career-ladder preferences flattens them.",
+    "deltas": {
+      "height": 2.4867,
+      "manager_ratio": 0.0662,
+      "productivity": -11.1009,
+      "size": 7.2895,
+      "employment": 33.92,
+      "survival": -0.058,
+      "wage": -4.0543,
+      "profit_margin": -0.0432
+    },
+    "conditions": {
+      "taller_hierarchy": true,
+      "lower_productivity": true,
+      "not_much_smaller": true
+    },
+    "consistent_seed_directions": {
+      "taller": 3,
+      "less_productive": 3,
+      "not_smaller": 3
+    },
+    "paired_seeds": [
+      {
+        "seed": 11,
+        "height_delta": 3.1188,
+        "manager_ratio_delta": 0.0739,
+        "productivity_delta": -13.3559,
+        "employment_delta": 38.36,
+        "survival_delta": -0.1386
+      },
+      {
+        "seed": 23,
+        "height_delta": 3.3995,
+        "manager_ratio_delta": 0.0579,
+        "productivity_delta": -11.8647,
+        "employment_delta": 24.8,
+        "survival_delta": -0.0785
+      },
+      {
+        "seed": 37,
+        "height_delta": 0.9419,
+        "manager_ratio_delta": 0.0668,
+        "productivity_delta": -8.0823,
+        "employment_delta": 38.6,
+        "survival_delta": 0.0429
+      }
+    ],
+    "note": "Deltas are baseline minus no-ladder. Positive height/manager deltas and negative productivity deltas support the mechanism; survival is reported separately because it measures market selection, not size. These are simulation effect sizes, not statistical significance tests."
+  },
+  "competition": {
+    "sheltered_minus_baseline_height": -0.0408,
+    "high_minus_baseline_height": -0.4244,
+    "baseline_minus_sheltered_survival": -0.3739,
+    "high_minus_baseline_survival": -0.0406,
+    "baseline_minus_sheltered_margin": 0.0222,
+    "high_minus_baseline_margin": -0.0444
+  }
+}

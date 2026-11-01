@@ -1,0 +1,4 @@
+scenario,label,height,manager_ratio,output_per_worker,wage_per_worker,profit_margin,avg_firm_size,employed,survival_rate,tall_employment_share,career_discount,exits
+baseline,Career ladder + competition,8.2244,0.2727,47.1032,45.4602,0.0567,35.2324,358.8533,0.6261,0.9597,0.1573,6.0
+career_no_retention,"Career preference, no retention promotions",5.7294,0.2083,55.3164,43.3609,0.1402,30.2184,360.0,0.8376,0.9184,0.1398,2.6667
+no_ladder,No career-ladder preference,5.7377,0.2065,58.2041,49.5145,0.0999,27.9429,324.9333,0.6841,0.8933,0.0,5.6667

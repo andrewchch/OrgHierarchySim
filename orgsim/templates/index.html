@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An agent-based simulation of hierarchy formation, career ladders, and organisational evolution.">
+  <title>Ladder Lab — Why do tall hierarchies survive?</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+      <span>
+        <strong>Ladder Lab</strong>
+        <small>organisational evolution / v{{ version }}</small>
+      </span>
+    </a>
+    <nav class="topnav">
+      <a href="#simulator">Simulator</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#model">Model</a>
+      <span class="status-pill"><span class="pulse"></span> local model</span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker">Experiment 01 &nbsp;·&nbsp; hierarchy formation</p>
+        <h1>Do career ladders keep <em>bad</em> hierarchies alive?</h1>
+        <p class="lede">
+          A population of workers with different skills, ambitions and loyalty
+          competes for jobs. Firms hire, promote, grow and fail. The question is
+          whether a taste for promotion can make manager-heavy organisations
+          survive even when they produce less per worker.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#simulator">Open the simulator</a>
+          <button class="button ghost" id="heroCompare">Run the counterfactual</button>
+        </div>
+        <div class="hero-footnote">
+          <span>agent-based</span><span>reproducible seeds</span><span>zero external data</span>
+        </div>
+      </div>
+
+      <aside class="hypothesis-card">
+        <div class="card-kicker">Working hypothesis</div>
+        <p>
+          When workers value promotion prospects, tall firms can pay less for the
+          same talent. That <strong>career-ladder subsidy</strong> lets them carry
+          more managers — and more bureaucracy — than a purely productivity-driven
+          market would tolerate.
+        </p>
+        <div class="hypothesis-flow">
+          <span>career preference</span>
+          <i>→</i>
+          <span>lower wages</span>
+          <i>→</i>
+          <span>taller firms survive</span>
+        </div>
+        <p class="hypothesis-note">
+          The simulator is built so this can fail: competition, overhead and
+          promotion ceilings all push in the opposite direction.
+        </p>
+      </aside>
+    </section>
+
+    <section class="lab-layout" id="simulator">
+      <aside class="controls panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Control room</p>
+            <h2>Set the market</h2>
+          </div>
+          <span class="chip" id="scenarioChip">baseline</span>
+        </div>
+
+        <label class="field">
+          <span>Scenario</span>
+          <select id="scenario"></select>
+        </label>
+        <p class="field-note" id="scenarioDescription">Loading scenarios…</p>
+
+        <div class="field-row">
+          <label class="field">
+            <span>Population <output id="populationOut">360</output></span>
+            <input id="population" type="range" min="160" max="600" step="20" value="360">
+          </label>
+          <label class="field">
+            <span>Steps <output id="stepsOut">100</output></span>
+            <input id="steps" type="range" min="40" max="180" step="10" value="100">
+          </label>
+        </div>
+
+        <div class="field-row compact">
+          <label class="field">
+            <span>Seed</span>
+            <input id="seed" type="number" min="0" max="999999" step="1" value="42">
+          </label>
+          <label class="field">
+            <span>Replicates</span>
+            <select id="replicates">
+              <option value="1">1 seed</option>
+              <option value="2" selected>2 seeds</option>
+              <option value="3">3 seeds</option>
+            </select>
+          </label>
+        </div>
+
+        <button class="button primary wide" id="runBtn">
+          <span class="button-label">Run simulation</span>
+          <span class="button-spinner" aria-hidden="true"></span>
+        </button>
+        <button class="button secondary wide" id="compareBtn">
+          Test the hypothesis
+          <small>baseline vs. no-ladder preference</small>
+        </button>
+
+        <div class="control-foot">
+          <span class="dot"></span>
+          <p>
+            Deterministic for a given seed. The CLI exposes every parameter:
+            <code>python run.py --help</code>.
+          </p>
+        </div>
+      </aside>
+
+      <div class="results">
+        <div class="runbar panel">
+          <div class="runbar-status">
+            <span class="status-light" id="statusLight"></span>
+            <span id="statusText">Ready. Run a simulation to populate the lab.</span>
+          </div>
+          <div class="runbar-meta" id="runMeta">—</div>
+        </div>
+
+        <section class="kpi-grid" id="kpis" aria-label="Key results">
+          <article class="kpi panel">
+            <span class="kpi-label">Hierarchy height</span>
+            <strong id="kpiHeight">—</strong>
+            <small>final step · weighted levels</small>
+          </article>
+          <article class="kpi panel">
+            <span class="kpi-label">Manager ratio</span>
+            <strong id="kpiManagers">—</strong>
+            <small>final step · share with reports</small>
+          </article>
+          <article class="kpi panel">
+            <span class="kpi-label">Output / worker</span>
+            <strong id="kpiOutput">—</strong>
+            <small>final step · output per worker</small>
+          </article>
+          <article class="kpi panel">
+            <span class="kpi-label">Ladder discount</span>
+            <strong id="kpiDiscount">—</strong>
+            <small>final step · wages traded for prospects</small>
+          </article>
+          <article class="kpi panel">
+            <span class="kpi-label">Average firm</span>
+            <strong id="kpiSize">—</strong>
+            <small>final step · employees</small>
+          </article>
+          <article class="kpi panel">
+            <span class="kpi-label">Survival</span>
+            <strong id="kpiSurvival">—</strong>
+            <small>firms alive at end</small>
+          </article>
+        </section>
+
+        <section class="panel chart-panel">
+          <div class="panel-heading chart-heading">
+            <div>
+              <p class="eyebrow">Trajectory</p>
+              <h2>What the market is doing</h2>
+            </div>
+            <div class="metric-chips" id="metricChips">
+              <button class="metric-chip active" data-metric="weighted_height">Height</button>
+              <button class="metric-chip" data-metric="weighted_manager_ratio">Managers</button>
+              <button class="metric-chip" data-metric="output_per_worker">Output</button>
+              <button class="metric-chip" data-metric="avg_firm_size">Firm size</button>
+              <button class="metric-chip" data-metric="wage_per_worker">Wage</button>
+              <button class="metric-chip" data-metric="profit_margin">Margin</button>
+            </div>
+          </div>
+          <div class="chart-wrap" id="chart"></div>
+          <div class="chart-caption">
+            <span id="chartCaption">Employment-weighted hierarchy height over time.</span>
+            <span class="chart-legend"><i></i> simulation steps</span>
+          </div>
+        </section>
+
+        <div class="split-grid">
+          <section class="panel tree-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Anatomy</p>
+                <h2>Inside a hierarchy</h2>
+              </div>
+              <select id="firmSelect" class="small-select" aria-label="Choose a firm"></select>
+            </div>
+            <div class="tree-meta" id="treeMeta">Run a simulation to inspect a firm.</div>
+            <div class="tree-wrap" id="tree">
+              <div class="empty-state">No organisation selected yet.</div>
+            </div>
+            <div class="legend">
+              <span><i class="swatch operator"></i>Operator</span>
+              <span><i class="swatch careerist"></i>Careerist</span>
+              <span><i class="swatch loyalist"></i>Loyalist</span>
+              <span><i class="swatch politician"></i>Politician</span>
+              <span><i class="swatch steady"></i>Steady</span>
+              <span class="legend-note">node size = skill · ring = manager</span>
+            </div>
+          </section>
+
+          <section class="panel events-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Churn</p>
+                <h2>Recent events</h2>
+              </div>
+              <span class="chip subtle" id="eventCount">0</span>
+            </div>
+            <div class="events" id="events">
+              <div class="empty-state">Hiring, promotion and failure events will appear here.</div>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel verdict-panel" id="evidence">
+          <div class="verdict-head">
+            <div>
+              <p class="eyebrow">Hypothesis test</p>
+              <h2 id="verdictTitle">The counterfactual is the point.</h2>
+            </div>
+            <span class="verdict-badge neutral" id="verdictBadge">not run</span>
+          </div>
+          <div id="verdictBody" class="verdict-body">
+            <p>
+              Run <strong>Test the hypothesis</strong> to compare the baseline with a
+              world in which workers place no value on promotion prospects.
+              The comparison runs the same population, market and seed structure
+              with only the career-ladder channel switched off.
+            </p>
+            <div class="hypothesis-grid">
+              <div><span>Prediction 1</span><strong>Taller hierarchies</strong><small>baseline has more levels</small></div>
+              <div><span>Prediction 2</span><strong>More managers</strong><small>more overhead per worker</small></div>
+              <div><span>Prediction 3</span><strong>Lower output / worker</strong><small>the hierarchy is less productive</small></div>
+              <div><span>Prediction 4</span><strong>Still large</strong><small>not selected out of the market</small></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel compare-panel" id="compareSection" hidden>
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Side by side</p>
+              <h2>Baseline vs. no ladder</h2>
+            </div>
+            <span class="chip subtle" id="compareMeta">—</span>
+          </div>
+          <div class="compare-grid">
+            <div id="compareTable"></div>
+            <div id="compareBars"></div>
+          </div>
+          <div class="compare-note">
+            Bars are last-quarter means across the selected seeds. Effect sizes are descriptive;
+            this is a stylised model, not a statistical estimate about real firms.
+          </div>
+        </section>
+
+        <section class="panel model-panel" id="model">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Model notes</p>
+              <h2>What is being simulated</h2>
+            </div>
+            <span class="chip subtle">agent-based</span>
+          </div>
+          <div class="model-grid">
+            <div>
+              <h3>Workers</h3>
+              <p>
+                Each agent has skill, ambition, hierarchy support, mobility and a
+                behavioural archetype. They compare wage, promotion prospects,
+                hierarchy affinity and switching costs.
+              </p>
+            </div>
+            <div>
+              <h3>Firms</h3>
+              <p>
+                Firms inherit a span-of-control strategy. Growth creates
+                managerial slots; retention promotions can create extra layers.
+                Payroll, overhead and coordination losses determine profit.
+              </p>
+            </div>
+            <div>
+              <h3>Selection</h3>
+              <p>
+                Output markets set a price. Weak firms shrink and fail, strong
+                firms hire and spin out entrants. Strategies are inherited with
+                mutation, so the population of organisations evolves.
+              </p>
+            </div>
+            <div>
+              <h3>Identification</h3>
+              <p>
+                The counterfactual changes only the value workers place on
+                promotion prospects and retention promotions. Everything else is
+                held constant for the same seed structure.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Ladder Lab · a simulation, not a forecast</span>
+    <span><a href="/api/scenarios">scenario API</a> · <a href="/api/health">health</a></span>
+  </footer>
+
+  <div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

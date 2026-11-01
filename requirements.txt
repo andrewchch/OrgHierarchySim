@@ -1,0 +1,3 @@
+# Core simulation and CLI are standard-library only.
+# The optional browser UI uses Flask.
+flask>=3.0
